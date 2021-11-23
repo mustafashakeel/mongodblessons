@@ -5,11 +5,11 @@ var url = 'mongodb://localhost:27017/vanarts';
 mongo.connect(url, (err, db) => {
     if (err) throw err;
     var dbo = db.db("vanarts");
-    var student = { name: "Damel", school: "vanarts", name: "charlene", school: "vanarts", name: "Niki" };
-
-    dbo.collection("students").insertOne(student, (err, res) => {
+    var query = { name: "Damel" };
+    var newValues = { $set: { name: "Demel Nigmatova", school: "Vancouver school of Arts" } };
+    dbo.collection("students").updateOne(query, newValues, (err, res) => {
         if (err) throw err;
-        console.log(" Inserted a document ");
+        console.log("updated ", res);
         db.close();
 
     });

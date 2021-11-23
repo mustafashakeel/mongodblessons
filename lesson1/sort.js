@@ -7,7 +7,7 @@ mongo.connect(url, (err, db) => {
     var dbo = db.db("vanarts");
     var query = { name: "Damel" };
     var mysort = { name: 1 }
-    dbo.collection("students").find(query).sort(mysort).toArray((err, res) => {
+    dbo.collection("students").find().sort(mysort).toArray((err, res) => {
         if (err) throw err;
         console.log("query ", res);
         db.close();
