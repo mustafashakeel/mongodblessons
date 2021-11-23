@@ -13,7 +13,4 @@ mongo.connect(url, (err, db) => {
         db.close();
 
     });
-
-
-
 });
